@@ -7,7 +7,7 @@ Sistema PDV – Ponto de Vendas – para gerenciar produtos, clientes e vendas d
 Alunos
 1.	Jonas Felipe Barros Silva
 2.	Marcus Cristiam Pimentel
-3.	Laison 
+3.	Lailson Rocha Mendonça 
 
 Atores do sistema
 - Estoquista
