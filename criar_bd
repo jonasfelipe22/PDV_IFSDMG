@@ -1,0 +1,34 @@
+
+CREATE TABLE produto (
+    id_produto INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome_produto VARCHAR(200) NOT NULL,
+    preco_produto DECIMAL(10, 2) NOT NULL
+);
+
+
+CREATE TABLE vendedor (
+    id_vendedor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome_vendedor VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE venda (
+    id_venda INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade INT NOT NULL,
+    id_vendedor INT NOT NULL,
+    valor_total DECIMAL(10, 2) GENERATED ALWAYS AS (quantidade * preco_produto) STORED,
+    FOREIGN KEY (id_produto) REFERENCES produto(id_produto),
+    FOREIGN KEY (id_vendedor) REFERENCES vendedor(id_vendedor)
+);
+
+
+
+-- Exemplo de inserção de dados na tabela Produto
+INSERT INTO produto (nome_produto, preco_produto) VALUES ('ProdutoA', 10.50);
+
+-- Exemplo de inserção de dados na tabela Vendedor
+INSERT INTO vendedor (nome_vendedor) VALUES ('Vendedor1');
+
+-- Exemplo de inserção de dados na tabela Venda
+INSERT INTO venda (id_produto, quantidade, id_vendedor) VALUES (1, 5, 1);
